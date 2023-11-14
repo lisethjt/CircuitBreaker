@@ -30,7 +30,6 @@ public class ProductoController {
 	public List<Producto> listar() {
 		return productoService.findAll().stream().map(producto -> {
 			producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-			// producto.setPort(port);
 			return producto;
 		}).collect(Collectors.toList());
 	}
@@ -48,9 +47,7 @@ public class ProductoController {
 
 		Producto producto = productoService.findById(id);
 		producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-		// producto.setPort(port);
 
 		return producto;
 	}
-
 }
